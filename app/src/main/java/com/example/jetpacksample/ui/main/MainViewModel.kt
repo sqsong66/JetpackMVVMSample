@@ -27,7 +27,7 @@ class MainViewModel @Inject constructor() : ViewModel() {
     val bannerList = MutableLiveData<List<BannerData>>()
 
     fun requestBannerData() {
-        Log.e("sqsong", "MainViewModel ApiService: $apiService")
+        // ViewModel扩展函数
         requestDataFromServer({ apiService.getHomeBanner() }, {
             if (it.isSuccess) {
                 val resultList = it.getOrNull()

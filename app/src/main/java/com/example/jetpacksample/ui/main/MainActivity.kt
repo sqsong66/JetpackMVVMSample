@@ -21,6 +21,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
         val navController = findNavController(R.id.nav_host_fragment_activity_main)
         binding.navView.setupWithNavController(navController)
 
+        // 请求banner数据
         mainViewModel.requestBannerData()
 
         mainViewModel.bannerList.observe(this) {
