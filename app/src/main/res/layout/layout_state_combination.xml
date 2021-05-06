@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bind="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="loadingState"
+            type="com.example.jetpacksample.common.loading.LoadingState" />
+
+        <variable
+            name="callback"
+            type="com.example.jetpacksample.common.loading.RetryCallback" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clipChildren="true">
+
+        <include
+            android:id="@+id/emptyLayout"
+            layout="@layout/layout_empty"
+            bind:loadingState="@{loadingState}" />
+
+        <include
+            android:id="@+id/errorLayout"
+            layout="@layout/layout_error"
+            bind:callback="@{callback}"
+            bind:loadingState="@{loadingState}" />
+
+        <include
+            android:id="@+id/loadingLayout"
+            layout="@layout/layout_loading"
+            bind:loadingState="@{loadingState}" />
+
+    </RelativeLayout>
+</layout>
